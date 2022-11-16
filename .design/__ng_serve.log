@@ -1,0 +1,57 @@
+
+> currency-converter@0.0.0 ng C:\Innovations\Engineering\currency-exchanger
+> ng "s" "__design__" "--port" "5678"
+
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names         |    Size
+main.js               | main          | 0 bytes
+polyfills.js          | polyfills     | 0 bytes
+runtime.js            | runtime       | 0 bytes
+styles.css, styles.js | styles        | 0 bytes
+vendor.js             | vendor        | 0 bytes
+
+| Initial Total | 0 bytes
+
+Build at: 2022-11-16T18:05:37.461Z - Hash: fc426ab2134205e92c22 - Time: 16775ms
+
+Error: ./.design/main.ts
+Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Error: C:\Innovations\Engineering\currency-exchanger\.design\main.ts is missing from the TypeScript compilation. Please make sure it is in your tsconfig via the 'files' or 'include' property.
+    at C:\Innovations\Engineering\currency-exchanger\node_modules\@ngtools\webpack\src\ivy\loader.js:42:26
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+
+Error: ./.design/polyfills.ts
+Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Error: C:\Innovations\Engineering\currency-exchanger\.design\polyfills.ts is missing from the TypeScript compilation. Please make sure it is in your tsconfig via the 'files' or 'include' property.
+    at C:\Innovations\Engineering\currency-exchanger\node_modules\@ngtools\webpack\src\ivy\loader.js:42:26
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+
+
+
+** Angular Live Development Server is listening on localhost:5678, open your browser on http://localhost:5678/ **
+
+- Generating browser application bundles...
+√ Browser application bundle generation complete.
+
+Initial Chunk Files   | Names     |    Size
+main.js               | main      | 0 bytes
+polyfills.js          | polyfills | 0 bytes
+styles.css, styles.js | styles    | 0 bytes
+
+2 unchanged chunks
+
+Build at: 2022-11-16T18:26:01.026Z - Hash: 36dde2891f8e4cbd6db5 - Time: 565ms
+
+Error: ./.design/main.ts
+Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Error: C:\Innovations\Engineering\currency-exchanger\.design\main.ts is missing from the TypeScript compilation. Please make sure it is in your tsconfig via the 'files' or 'include' property.
+    at C:\Innovations\Engineering\currency-exchanger\node_modules\@ngtools\webpack\src\ivy\loader.js:42:26
+
+Error: ./.design/polyfills.ts
+Module build failed (from ./node_modules/@ngtools/webpack/src/ivy/index.js):
+Error: C:\Innovations\Engineering\currency-exchanger\.design\polyfills.ts is missing from the TypeScript compilation. Please make sure it is in your tsconfig via the 'files' or 'include' property.
+    at C:\Innovations\Engineering\currency-exchanger\node_modules\@ngtools\webpack\src\ivy\loader.js:42:26
+
+
