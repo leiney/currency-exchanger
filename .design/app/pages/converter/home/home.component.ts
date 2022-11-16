@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-	title: string = 'Currency Exchangepublic __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorServicer';this.__componentInspectorService.getComp(this);
+	title: string = 'Currency Exchanger';
 
-
-	constructor() { }
+	constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService) {this.__componentInspectorService.getComp(this);
+ }
 
 	ngOnInit(): void {
 		

@@ -8,10 +8,10 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export cpublic __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorServicelasthis.__componentInspectorService.getComp(this);
-s LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService) {this.__componentInspectorService.getComp(this);
+ }
 
   ngOnInit(): void {
   }
