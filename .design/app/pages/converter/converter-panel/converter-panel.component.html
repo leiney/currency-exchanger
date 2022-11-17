@@ -1,0 +1,77 @@
+
+<form class="converter-panel rounded-box" [formGroup]="form" (ngSubmit)="onCalculate()" (contextmenu)="__elementSelectionService.select('469826227',$event)" [ngStyle]="__elementSelectionService.getStyles('469826227')"(click)='__elementSelectionService.clear()'>	
+	<div class="flex" (contextmenu)="__elementSelectionService.select('481187673',$event)" [ngStyle]="__elementSelectionService.getStyles('481187673')">
+		<div class="flex-col-33" (contextmenu)="__elementSelectionService.select('1038216260',$event)" [ngStyle]="__elementSelectionService.getStyles('1038216260')">
+			<label class="center" (contextmenu)="__elementSelectionService.select('1236423910',$event)" [ngStyle]="__elementSelectionService.getStyles('1236423910')">Amount:</label>
+			
+			<input type="number" class="form-control" formControlName="amount" [ngClass]="{ 'is-invalid': f.amount.errors }" placeholder="###,###.00" (contextmenu)="__elementSelectionService.select('174877453',$event)" [ngStyle]="__elementSelectionService.getStyles('174877453')">
+				
+			<div *ngIf="f.amount.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('56544987',$event)" [ngStyle]="__elementSelectionService.getStyles('56544987')">
+				<div *ngIf="f.amount.errors.required" (contextmenu)="__elementSelectionService.select('260440491',$event)" [ngStyle]="__elementSelectionService.getStyles('260440491')">
+					Amount is required
+				</div>
+			</div>
+		</div>
+		<div class="flex-col-25" (contextmenu)="__elementSelectionService.select('1525479861',$event)" [ngStyle]="__elementSelectionService.getStyles('1525479861')">
+			<label (contextmenu)="__elementSelectionService.select('1951653968',$event)" [ngStyle]="__elementSelectionService.getStyles('1951653968')">From:</label>
+			
+			<select class="form-control" formControlName="sourceCurrency" [ngClass]="{ 'is-invalid': f.sourceCurrency.errors }" (contextmenu)="__elementSelectionService.select('2048546312',$event)" [ngStyle]="__elementSelectionService.getStyles('2048546312')">
+				<option *ngFor="let c of currencies" [value]="c.code" (contextmenu)="__elementSelectionService.select('1323072890',$event)" [ngStyle]="__elementSelectionService.getStyles('1323072890')">
+					{{c.code}}
+				</option>
+			</select>
+			
+			<div *ngIf="f.sourceCurrency.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1519943030',$event)" [ngStyle]="__elementSelectionService.getStyles('1519943030')">
+				<div *ngIf="f.sourceCurrency.errors.required" (contextmenu)="__elementSelectionService.select('1954350065',$event)" [ngStyle]="__elementSelectionService.getStyles('1954350065')">
+					Source currency is required
+				</div>
+			</div>
+		</div>
+		<div class (contextmenu)="__elementSelectionService.select('412475753',$event)" [ngStyle]="__elementSelectionService.getStyles('412475753')">
+			<img src="assets/img/convert.png" class="converter-icon" height="50" (contextmenu)="__elementSelectionService.select('1642723222',$event)" [ngStyle]="__elementSelectionService.getStyles('1642723222')">
+		</div>
+		<div class="flex-col-25" (contextmenu)="__elementSelectionService.select('841555342',$event)" [ngStyle]="__elementSelectionService.getStyles('841555342')">
+			<label class="center" (contextmenu)="__elementSelectionService.select('1822521704',$event)" [ngStyle]="__elementSelectionService.getStyles('1822521704')">To:</label>
+			
+			<select class="form-control" formControlName="destinationCurrency" [ngClass]="{ 'is-invalid': f.destinationCurrency.errors }" (contextmenu)="__elementSelectionService.select('1454416988',$event)" [ngStyle]="__elementSelectionService.getStyles('1454416988')">
+				<option *ngFor="let c of currencies" [value]="c.code" (contextmenu)="__elementSelectionService.select('1967723073',$event)" [ngStyle]="__elementSelectionService.getStyles('1967723073')">
+					{{c.code}}
+				</option>
+			</select>
+			
+			<div *ngIf="f.destinationCurrency.errors" class="invalid-feedback" (contextmenu)="__elementSelectionService.select('1415673581',$event)" [ngStyle]="__elementSelectionService.getStyles('1415673581')">
+				<div *ngIf="f.destinationCurrency.errors.required" (contextmenu)="__elementSelectionService.select('5174058',$event)" [ngStyle]="__elementSelectionService.getStyles('5174058')">
+					Destination currency is required
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="flex" (contextmenu)="__elementSelectionService.select('1582365844',$event)" [ngStyle]="__elementSelectionService.getStyles('1582365844')">
+		<div class="flex-col-33" (contextmenu)="__elementSelectionService.select('234439338',$event)" [ngStyle]="__elementSelectionService.getStyles('234439338')"></div>
+		<div class="flex-col-66" (contextmenu)="__elementSelectionService.select('412744777',$event)" [ngStyle]="__elementSelectionService.getStyles('412744777')">
+			<button type="submit" class="button button-blue width-full" (contextmenu)="__elementSelectionService.select('1198363886',$event)" [ngStyle]="__elementSelectionService.getStyles('1198363886')">
+				Convert
+			</button>
+		</div>
+	</div>
+	<div class="flex" (contextmenu)="__elementSelectionService.select('817382898',$event)" [ngStyle]="__elementSelectionService.getStyles('817382898')">
+		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('377491194',$event)" [ngStyle]="__elementSelectionService.getStyles('377491194')">
+			<label class="form-control" (contextmenu)="__elementSelectionService.select('803953728',$event)" [ngStyle]="__elementSelectionService.getStyles('803953728')">
+				1 {{f?.sourceCurrency?.value}} =
+				{{f?.destinationCurrency?.value}}
+				{{f?.rate?.value | number:'1.2-2'}}  
+			</label>
+		</div>
+		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('870463138',$event)" [ngStyle]="__elementSelectionService.getStyles('870463138')">
+			<div class="rounded-box padded width-full" (contextmenu)="__elementSelectionService.select('547418094',$event)" [ngStyle]="__elementSelectionService.getStyles('547418094')">
+				{{f?.converted?.value | number:'1.2-2'}} 
+				{{f?.destinationCurrency?.value}}
+			</div>
+		</div>
+		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('1034608693',$event)" [ngStyle]="__elementSelectionService.getStyles('1034608693')">
+			<a class="button button-blue width-full" [routerLink]="['/converter/details']" [queryParams]="{source:f?.sourceCurrency?.value, destination:f?.destinationCurrency?.value}" (contextmenu)="__elementSelectionService.select('1161046726',$event)" [ngStyle]="__elementSelectionService.getStyles('1161046726')">
+				More Details
+			</a>
+		</div>		
+	</div>
+</form>

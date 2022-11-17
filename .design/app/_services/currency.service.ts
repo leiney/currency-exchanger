@@ -1,3 +1,4 @@
+import {Currency} from './../shared/_types/currency';
 /**
  * @class CurrencyService
  * =====================================================================================
@@ -39,8 +40,15 @@ export class CurrencyService {
   	/**
   	 * @method getCurrencies()
   	 * Expose the currencies variable as an observable. 
+  	 * return array of currencies
   	 */
   	public getCurrencies(): Observable<any>{
-		return of(this.currencies);
+  		let currencies: Currency[] = [];
+  	
+  		for(let c in this.currencies){
+  			currencies.push(Object.assign(this.currencies[c],{code: c}));
+  		}
+  		
+		return of(currencies);
 	}
 }

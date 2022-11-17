@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 $white: #ffffff;
+$red: #e60000;
 $blue: #008CBA;
 $black: #000000;
 $font-family: 'Trebuchet MS', sans-serif;
 $control-padding: 10px;
+$control-padding-large: 20px;
 $font-small-size: 8px;
 $font-medium-size: 12px;
 $font-large-size: 15px;
@@ -52,11 +54,30 @@ body{
   color: $white;
 }
 
+.rounded-box.padded{
+	padding: $control-padding-large;
+}
+
 /* basic flex grid with equal sized columns */
 .flex {
   display: flex;
   flex-direction: row;
   text-align: center;
+}
+
+/* automatically overflow to the next row if items can't fit*/
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
+.flex .flex-col-75 {
+  padding: $control-padding;
+  flex: 75%;
+}
+
+.flex .flex-col-66 {
+  padding: $control-padding;
+  flex: 66%;
 }
 
 .flex .flex-col-50 {
@@ -70,9 +91,24 @@ body{
 }
 
 .flex .flex-col-25 {
-  background-color: dodgerblue;
   padding: 10px;
   flex: 25%;
+}
+
+.flex .flex-col-50:first-child, 
+.flex .flex-col-33:first-child, 
+.flex .flex-col-25:first-child,  
+.flex .flex-col-66:first-child,
+.flex .flex-col-75:first-child {
+	text-align: left;
+}
+
+.flex .flex-col-50:last-child, 
+.flex .flex-col-33:last-child,  
+.flex .flex-col-25:last-child,  
+.flex .flex-col-66:last-child,
+.flex .flex-col-75:last-child {
+	text-align: right;
 }
 
 /* basic form control styles */
@@ -107,4 +143,12 @@ body{
 	border: $control-border;
 	border-radius: $border-radius;
 	box-sizing: border-box;
+}
+
+.invalid-feedback{
+	color: $red;
+	font-size: $font-medium-size;
+}
+.converter-icon{
+	margin-top: 20px;
 }

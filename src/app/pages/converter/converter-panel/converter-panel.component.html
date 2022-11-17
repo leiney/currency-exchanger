@@ -1,0 +1,82 @@
+<!-- BEGIN: CURRENCY EXCHANGER PANEL -->
+<form class="converter-panel rounded-box" [formGroup]="form" (ngSubmit)="onCalculate()">	
+	<div class="flex">
+		<div class="flex-col-33">
+			<label class="center">Amount:</label>
+			
+			<input type="number" class="form-control" formControlName="amount" 
+				[ngClass]="{ 'is-invalid': f.amount.errors }" placeholder="###,###.00"/>
+				
+			<div *ngIf="f.amount.errors" class="invalid-feedback">
+				<div *ngIf="f.amount.errors.required">
+					Amount is required
+				</div>
+			</div>
+		</div>
+		<div class="flex-col-25">
+			<label>From:</label>
+			
+			<select class="form-control" formControlName="sourceCurrency"
+				[ngClass]="{ 'is-invalid': f.sourceCurrency.errors }">
+				<option *ngFor="let c of currencies" [value]="c.code">
+					{{c.code}}
+				</option>
+			</select>
+			
+			<div *ngIf="f.sourceCurrency.errors" class="invalid-feedback">
+				<div *ngIf="f.sourceCurrency.errors.required">
+					Source currency is required
+				</div>
+			</div>
+		</div>
+		<div class="">
+			<img src="assets/img/convert.png" class="converter-icon" height="50" />
+		</div>
+		<div class="flex-col-25">
+			<label class="center">To:</label>
+			
+			<select class="form-control" formControlName="destinationCurrency"
+				[ngClass]="{ 'is-invalid': f.destinationCurrency.errors }">
+				<option *ngFor="let c of currencies" [value]="c.code">
+					{{c.code}}
+				</option>
+			</select>
+			
+			<div *ngIf="f.destinationCurrency.errors" class="invalid-feedback">
+				<div *ngIf="f.destinationCurrency.errors.required">
+					Destination currency is required
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="flex">
+		<div class="flex-col-33"></div>
+		<div class="flex-col-66">
+			<button type="submit" class="button button-blue width-full">
+				Convert
+			</button>
+		</div>
+	</div>
+	<div class="flex">
+		<div class="flex-col-33 center">
+			<label class="form-control">
+				1 {{f?.sourceCurrency?.value}} =
+				{{f?.destinationCurrency?.value}}
+				{{f?.rate?.value | number:'1.2-2'}}  
+			</label>
+		</div>
+		<div class="flex-col-33 center">
+			<div class="rounded-box padded width-full">
+				{{f?.converted?.value | number:'1.2-2'}} 
+				{{f?.destinationCurrency?.value}}
+			</div>
+		</div>
+		<div class="flex-col-33 center">
+			<a class="button button-blue width-full" [routerLink]="['/converter/details']"
+				[queryParams] = "{source:f?.sourceCurrency?.value, destination:f?.destinationCurrency?.value}">
+				More Details
+			</a>
+		</div>		
+	</div>
+</form>
+<!-- END: CURRENCY EXCHANGER PANEL -->

@@ -1,1 +1,10 @@
 <h3 (contextmenu)="__elementSelectionService.select('1023504835',$event)" [ngStyle]="__elementSelectionService.getStyles('1023504835')"(click)='__elementSelectionService.clear()'>{{title}}</h3>
+
+<converter-panel [conversionRate]="conversionRate" (contextmenu)="__elementSelectionService.select('302108980',$event)" [ngStyle]="__elementSelectionService.getStyles('302108980')"(click)='__elementSelectionService.clear()'></converter-panel>
+
+
+<br (contextmenu)="__elementSelectionService.select('7005765',$event)" [ngStyle]="__elementSelectionService.getStyles('7005765')"(click)='__elementSelectionService.clear()'>
+<div class="flex wrap" (contextmenu)="__elementSelectionService.select('144281776',$event)" [ngStyle]="__elementSelectionService.getStyles('144281776')"(click)='__elementSelectionService.clear()'>
+	<currency-card class="flex-col-33 center rounded-box right-margined bottom-margined" *ngFor="let c of conversions" [conversionRate]="c" (contextmenu)="__elementSelectionService.select('294593026',$event)" [ngStyle]="__elementSelectionService.getStyles('294593026')">
+	</currency-card>
+</div>

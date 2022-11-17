@@ -1,9 +1,15 @@
 <div class="header flex rounded-box center">
-	<div class="flex-col-50 text-left">
+	<div class="flex-col-50">
 		<img src="assets/img/logo.png" height="50"/>
 	</div>
-	<div class="flex-col-50 text-right">
-		<a class="button" routerLink="details/eur-usd">EUR-USD Details</a>
-		<a class="button" routerLink="details/usd-gbp">EUR-GBP Details</a>
+	<div class="flex-col-50">
+		<a class="button" [routerLink]="['/converter/details']"
+			[queryParams]="{source:'EUR', destination:'USD'}">
+			EUR-USD Details
+		</a>
+		<a class="button" [routerLink]="['/converter/details']"
+			[queryParams]="{source:'GBP', destination:'GBP'}">
+			EUR-GBP Details
+		</a>
 	</div>
 </div>

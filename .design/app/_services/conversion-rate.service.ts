@@ -41,9 +41,9 @@ export class ConversionRateService {
   	 * Get rate equivalent for the second currency code i.e. destinationCurrency 
   	 */
   	public getRate(sourceCurrency: string, destinationCurrency: string): Observable<number>{
-  		let currency: any = this.rates.find((a:ConversionRate) => (
+  		let result: any = this.rates.find(a=>
 			a.sourceCurrency==sourceCurrency && a.destinationCurrency==destinationCurrency
-  		));
-		return of(currency.rate);
+  		); 
+		return of((result? result.rate : undefined));
 	}
 }

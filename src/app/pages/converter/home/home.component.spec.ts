@@ -1,3 +1,4 @@
+import {ConverterPanelComponent} from './../converter-panel/converter-panel.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
@@ -10,7 +11,7 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ HomeComponent ]
     })
-    .compileComponents();
+    .compileComponents();    
   });
 
   beforeEach(() => {
@@ -22,4 +23,17 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should display sticky converter panel', () => {
+	const fixture = TestBed.createComponent(HomeComponent);
+	fixture.detectChanges();
+	const compiled = fixture.debugElement.nativeElement;
+  });
+  
+  it('should display 3 X 3 converted currency cards', () => {
+	const fixture = TestBed.createComponent(HomeComponent);
+	fixture.detectChanges();
+	const compiled = fixture.debugElement.nativeElement;
+  });
+  
 });

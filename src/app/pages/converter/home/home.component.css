@@ -1,0 +1,6 @@
+.flex .flex-col-33:nth-child(odd){
+	margin-right: 10px; 	
+}
+.flex .flex-col-33{
+	margin-bottom: 10px; 
+}

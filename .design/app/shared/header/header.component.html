@@ -1,9 +1,13 @@
 <div class="header flex rounded-box center" (contextmenu)="__elementSelectionService.select('1888496343',$event)" [ngStyle]="__elementSelectionService.getStyles('1888496343')"(click)='__elementSelectionService.clear()'>
-	<div class="flex-col-50 text-left" (contextmenu)="__elementSelectionService.select('898181178',$event)" [ngStyle]="__elementSelectionService.getStyles('898181178')">
+	<div class="flex-col-50" (contextmenu)="__elementSelectionService.select('898181178',$event)" [ngStyle]="__elementSelectionService.getStyles('898181178')">
 		<img src="assets/img/logo.png" height="50" (contextmenu)="__elementSelectionService.select('316085794',$event)" [ngStyle]="__elementSelectionService.getStyles('316085794')">
 	</div>
-	<div class="flex-col-50 text-right" (contextmenu)="__elementSelectionService.select('1675644989',$event)" [ngStyle]="__elementSelectionService.getStyles('1675644989')">
-		<a class="button" routerLink="details/eur-usd" (contextmenu)="__elementSelectionService.select('603233593',$event)" [ngStyle]="__elementSelectionService.getStyles('603233593')">EUR-USD Details</a>
-		<a class="button" routerLink="details/usd-gbp" (contextmenu)="__elementSelectionService.select('1606461829',$event)" [ngStyle]="__elementSelectionService.getStyles('1606461829')">EUR-GBP Details</a>
+	<div class="flex-col-50" (contextmenu)="__elementSelectionService.select('1675644989',$event)" [ngStyle]="__elementSelectionService.getStyles('1675644989')">
+		<a class="button" [routerLink]="['/converter/details']" [queryParams]="{source:'EUR', destination:'USD'}" (contextmenu)="__elementSelectionService.select('4149899',$event)" [ngStyle]="__elementSelectionService.getStyles('4149899')">
+			EUR-USD Details
+		</a>
+		<a class="button" [routerLink]="['/converter/details']" [queryParams]="{source:'GBP', destination:'GBP'}" (contextmenu)="__elementSelectionService.select('313468529',$event)" [ngStyle]="__elementSelectionService.getStyles('313468529')">
+			EUR-GBP Details
+		</a>
 	</div>
 </div>

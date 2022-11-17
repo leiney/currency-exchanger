@@ -1,1 +1,11 @@
 <h3>{{title}}</h3>
+
+<converter-panel [conversionRate]="conversionRate"></converter-panel>
+
+<!-- BEGIN: 3 x 3 CURRENCY LINKS -->
+<br/>
+<div class="flex wrap">
+	<currency-card  class="flex-col-33 center rounded-box right-margined bottom-margined" 
+		*ngFor="let c of conversions" [conversionRate]="c">
+	</currency-card>
+</div>
