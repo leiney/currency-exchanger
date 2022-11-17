@@ -3,37 +3,83 @@ $white: #ffffff;
 $blue: #008CBA;
 $black: #000000;
 $font-family: 'Trebuchet MS', sans-serif;
-$control-padding: 20px;
+$control-padding: 10px;
 $font-small-size: 8px;
 $font-medium-size: 12px;
 $font-large-size: 15px;
 $control-margins: 4px 2px;
-$control-border: 1px solid #ccc;
+$control-border: 1px solid $white;
 $border-radius: 5px;
 
 /* basic component styles */
 body{
 	font-family: $font-family;
 	background-color: $black;
+	color: $white;
 }
+
+/* main container holder styles */
+.container{
+	max-width: 800px; 
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* layout alignment styles */
 .center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 3px solid green; 
+	margin-left: auto;
+    margin-right: auto;
 }
 
+/* text alignment styles */
+.text-left{
+	text-align: left;
+}
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+
+/* rounded box styles */
 .rounded-box {
+  border: 3px solid $white; 
   border-radius: $border-radius;
   color: $white;
-  padding: 20px;
+}
+
+/* basic flex grid with equal sized columns */
+.flex {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.flex .flex-col-50 {
+  padding: $control-padding;
+  flex: 50%;
+}
+
+.flex .flex-col-33 {
+  padding: $control-padding;
+  flex: 33.33%;
+}
+
+.flex .flex-col-25 {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 25%;
 }
 
 /* basic form control styles */
 .button {
-	background-color: $white;
-	border: none;
-	color: $black;
+	background-color: transparent;
+	border: $control-border;
+	color: $white;
 	padding: $control-padding;
 	border-radius: $border-radius;
 	text-align: center;
@@ -48,8 +94,9 @@ body{
 	opacity: 0.5;
 }
 
-.button.blue-button{
+.button.button-blue{
 	background-color: $blue;
+	color: $black;
 }
 
 .form-control {

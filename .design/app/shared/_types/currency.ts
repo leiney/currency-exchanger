@@ -1,5 +1,4 @@
 export interface Currency {
-	currency: string;
-	weight?: number;
-	rate?: number;
+	shortName: string;
+	longName: string;
 }

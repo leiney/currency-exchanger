@@ -1,3 +1,12 @@
+/**
+ * @class AppRoutingModule
+ * =====================================================================================
+ * This is the main routing configuration for the project. Include the main routes to 
+ * modules and landing page only. DONT include children routes here
+ * =====================================================================================
+ * @author Leiney Ogeto
+ */
+ 
 import {LayoutComponent} from './shared/layout/layout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
