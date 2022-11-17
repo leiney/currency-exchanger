@@ -1,5 +1,6 @@
 import {ConverterPanelComponent} from './../converter-panel/converter-panel.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 
@@ -9,6 +10,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot([])],
       declarations: [ HomeComponent ]
     })
     .compileComponents();    

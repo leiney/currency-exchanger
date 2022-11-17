@@ -1,6 +1,10 @@
 import {ElementSelectionService} from './../../../element-selection.service';
 import {ComponentInspectorService} from './../../../component-inspector.service';
-import { Component, OnInit } from '@angular/core';
+import {ConversionRate} from './../../../_models/conversion-rate';
+import {Currency} from './../../../shared/_types/currency';
+import {CurrencyService} from './../../../_services/currency.service';
+import { Component, OnInit, Input } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'detail',
@@ -8,11 +12,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+	title: Currency;
 
-	constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService) {this.__componentInspectorService.getComp(this);
+	@Input() conversionRate: ConversionRate = {
+		amount: 0,
+		sourceCurrency: 'EUR',
+		destinationCurrency: 'USD'
+	};
+	
+	constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService,
+
+			public route: ActivatedRoute, 
+			public currencyService: CurrencyService) {this.__componentInspectorService.getComp(this);
  }
 
 	ngOnInit(): void {
-		
+		this.route.queryParams.subscribe((params: any) => { 
+			this.onGetCurrency(params);
+		});
+	}
+	
+	onGetCurrency(params: any){
+		this.currencyService.getCurrency(params.source).subscribe(data=>{
+			this.title = Object.assign(data,{code: params.source});
+			this.conversionRate.amount = params.amount || 0;				
+			this.conversionRate.sourceCurrency = params.source || '';
+			this.conversionRate.destinationCurrency = params.destination || '';
+		});
+	}
+	
+	onDrawCurrencyChart(conversionRate?: any){ 
+		this.conversionRate = Object.assign(this.conversionRate,(conversionRate || {}));
 	}
 }

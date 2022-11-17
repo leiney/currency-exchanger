@@ -13,7 +13,7 @@ import {ConversionRate} from './../../../_models/conversion-rate';
 import {ConversionRateService} from './../../../_services/conversion-rate.service';
 import {CurrencyService} from './../../../_services/currency.service';
 import {Currencies} from './../../../shared/_types/currencies';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -22,6 +22,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./converter-panel.component.css']
 })
 export class ConverterPanelComponent implements OnInit {
+	
+	/* showMore determines visibility of the 'More Details' button */
+	@Input() showMore: boolean; 
+	
+	/* onChange informs the parent component that input values have changed */
+	@Output() onChange = new EventEmitter<any>();
+	
+	/* parents feed converter panel through 'conversionRate' data variable */
 	@Input() conversionRate: ConversionRate; 
 	
 	/* converter form object goes here */
@@ -35,8 +43,7 @@ export class ConverterPanelComponent implements OnInit {
 			public formBuilder: FormBuilder,
 			public currencyService: CurrencyService,
 			public rateService: ConversionRateService) {this.__componentInspectorService.getComp(this);
- 
-		
+ 		
 	}
 
 	/**
@@ -50,7 +57,7 @@ export class ConverterPanelComponent implements OnInit {
 		this.form = this.formBuilder.group({
 			sourceCurrency: ['', Validators.required],
 	    	destinationCurrency: ['', Validators.required],
-	        amount: [null,[Validators.required]],
+	        amount: [0,[Validators.required]],
 	        rate: [null],
 	        converted: [null]
 	    });
@@ -59,6 +66,13 @@ export class ConverterPanelComponent implements OnInit {
 		 * populate form with default values 
 		 */
 		 this.form.patchValue(this.conversionRate);
+		 
+		/**
+		 * !showMore means currency is set, hence run the calculate method
+		 */
+		 if(this.showMore==false){
+			 this.onCalculate();
+		 }
 		 
 		
 		/**
@@ -74,13 +88,8 @@ export class ConverterPanelComponent implements OnInit {
 	 * This method performs the conversion itself i.e. getting appropriate rate
 	 * and performing a multiplication for the supplied value
 	 */
-	onCalculate(): void {
-		if (this.form.invalid) 
-		{
-			alert("Please fill in all the inputs");
-		}
-		else
-		{
+	onCalculate(e?: any): void {
+		if(this.form && this.form.value){
 			let d: ConversionRate = this.form.value;
 			let a: string = d.sourceCurrency || '';
 			let b: string = d.destinationCurrency || '';
@@ -89,9 +98,32 @@ export class ConverterPanelComponent implements OnInit {
 				let converted: any = Number(d.amount)*rate;			
 				this.form.patchValue({rate: rate, converted: converted});
 				this.conversionRate.rate = rate;
+				this.handleInputChange(this.form.value);
 			});
 		}
 	}
 	
+	/**
+	 * @method 
+	 * This will trigger conversion if currency input value changes
+	 */
+	ngOnChanges(c: SimpleChanges) { 
+		 if(this.form && this.form.value){ 
+			 this.handleInputChange(this.form.value);
+		 }
+    }
+	
+	/**
+	 * @method 
+	 * This will pass the $event object to the parent component.
+	 */
+	handleInputChange(conversionRate?: any){	    
+	    this.onChange.emit(conversionRate);
+	}
+	
+	/**
+	 * @method 
+	 * A shorthand accessor method for the form controls used in views
+	 */
 	get f() { return this.form.controls; }
 }

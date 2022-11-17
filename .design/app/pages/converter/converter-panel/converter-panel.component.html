@@ -1,5 +1,5 @@
-
-<form class="converter-panel rounded-box" [formGroup]="form" (ngSubmit)="onCalculate()" (contextmenu)="__elementSelectionService.select('469826227',$event)" [ngStyle]="__elementSelectionService.getStyles('469826227')"(click)='__elementSelectionService.clear()'>	
+<form class="converter-panel rounded-box" [formGroup]="form" (ngSubmit)="onCalculate()" (contextmenu)="__elementSelectionService.select('469826227',$event)" [ngStyle]="__elementSelectionService.getStyles('469826227')"(click)='__elementSelectionService.clear()'>
+		
 	<div class="flex" (contextmenu)="__elementSelectionService.select('481187673',$event)" [ngStyle]="__elementSelectionService.getStyles('481187673')">
 		<div class="flex-col-33" (contextmenu)="__elementSelectionService.select('1038216260',$event)" [ngStyle]="__elementSelectionService.getStyles('1038216260')">
 			<label class="center" (contextmenu)="__elementSelectionService.select('1236423910',$event)" [ngStyle]="__elementSelectionService.getStyles('1236423910')">Amount:</label>
@@ -54,24 +54,50 @@
 			</button>
 		</div>
 	</div>
-	<div class="flex" (contextmenu)="__elementSelectionService.select('817382898',$event)" [ngStyle]="__elementSelectionService.getStyles('817382898')">
+	
+	
+	
+	<div class="flex" *ngIf="showMore" (contextmenu)="__elementSelectionService.select('817382898',$event)" [ngStyle]="__elementSelectionService.getStyles('817382898')">
 		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('377491194',$event)" [ngStyle]="__elementSelectionService.getStyles('377491194')">
 			<label class="form-control" (contextmenu)="__elementSelectionService.select('803953728',$event)" [ngStyle]="__elementSelectionService.getStyles('803953728')">
 				1 {{f?.sourceCurrency?.value}} =
 				{{f?.destinationCurrency?.value}}
-				{{f?.rate?.value | number:'1.2-2'}}  
+				{{(f?.rate?.value || 0) | number:'1.2-2'}}  
 			</label>
 		</div>
 		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('870463138',$event)" [ngStyle]="__elementSelectionService.getStyles('870463138')">
 			<div class="rounded-box padded width-full" (contextmenu)="__elementSelectionService.select('547418094',$event)" [ngStyle]="__elementSelectionService.getStyles('547418094')">
-				{{f?.converted?.value | number:'1.2-2'}} 
+				{{(f?.converted?.value || 0) | number:'1.2-2'}} 
 				{{f?.destinationCurrency?.value}}
 			</div>
 		</div>
 		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('1034608693',$event)" [ngStyle]="__elementSelectionService.getStyles('1034608693')">
-			<a class="button button-blue width-full" [routerLink]="['/converter/details']" [queryParams]="{source:f?.sourceCurrency?.value, destination:f?.destinationCurrency?.value}" (contextmenu)="__elementSelectionService.select('1161046726',$event)" [ngStyle]="__elementSelectionService.getStyles('1161046726')">
+			<a class="button button-blue width-full" [routerLink]="['/converter/details']" [queryParams]="{
+					source: f?.sourceCurrency?.value,
+					destination: f?.destinationCurrency?.value,
+					amount: f?.amount?.value }" (contextmenu)="__elementSelectionService.select('1161046726',$event)" [ngStyle]="__elementSelectionService.getStyles('1161046726')">
 				More Details
 			</a>
 		</div>		
 	</div>
+	
+	
+	
+	<div class="flex" *ngIf="!showMore" (contextmenu)="__elementSelectionService.select('710926932',$event)" [ngStyle]="__elementSelectionService.getStyles('710926932')">
+		<div class="flex-col-33 center" (contextmenu)="__elementSelectionService.select('1742796028',$event)" [ngStyle]="__elementSelectionService.getStyles('1742796028')">
+			<label class="form-control" (contextmenu)="__elementSelectionService.select('1830072345',$event)" [ngStyle]="__elementSelectionService.getStyles('1830072345')">
+				1 {{f?.sourceCurrency?.value}} =
+				{{f?.destinationCurrency?.value}}
+				{{(f?.rate?.value || 0) | number:'1.2-2'}}  
+			</label>
+		</div>
+		<div class="flex-col-66 center" (contextmenu)="__elementSelectionService.select('2059615866',$event)" [ngStyle]="__elementSelectionService.getStyles('2059615866')">
+			<div class="rounded-box padded width-full" (contextmenu)="__elementSelectionService.select('552130693',$event)" [ngStyle]="__elementSelectionService.getStyles('552130693')">
+				{{(f?.converted?.value || 0) | number:'1.2-2'}} 
+				{{f?.destinationCurrency?.value}}
+			</div>
+		</div>	
+	</div>
+	
+	
 </form>

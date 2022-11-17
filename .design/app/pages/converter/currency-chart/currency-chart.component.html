@@ -1,0 +1,13 @@
+<div class="currency-graph" (contextmenu)="__elementSelectionService.select('231974123',$event)" [ngStyle]="__elementSelectionService.getStyles('231974123')"(click)='__elementSelectionService.clear()'>
+    <div class="content" (contextmenu)="__elementSelectionService.select('1103204621',$event)" [ngStyle]="__elementSelectionService.getStyles('1103204621')">
+        <div class="bars" *ngFor="let item of chartData" (contextmenu)="__elementSelectionService.select('1933890134',$event)" [ngStyle]="__elementSelectionService.getStyles('1933890134')">
+            <span (contextmenu)="__elementSelectionService.select('1249358237',$event)" [ngStyle]="__elementSelectionService.getStyles('1249358237')">{{item.rate | number}}</span>
+            <div class="bar" [style.background-color]="item.color" [style.height]="item.size" (contextmenu)="__elementSelectionService.select('1700839218',$event)" [ngStyle]="__elementSelectionService.getStyles('1700839218')">
+            </div>
+        </div>
+    </div>
+    <div class="line" (contextmenu)="__elementSelectionService.select('986719846',$event)" [ngStyle]="__elementSelectionService.getStyles('986719846')"></div>
+    <div class="legends" (contextmenu)="__elementSelectionService.select('1523350104',$event)" [ngStyle]="__elementSelectionService.getStyles('1523350104')">
+        <span *ngFor="let item of months" (contextmenu)="__elementSelectionService.select('2012386993',$event)" [ngStyle]="__elementSelectionService.getStyles('2012386993')">{{item}}</span>
+    </div>
+</div>

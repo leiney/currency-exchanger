@@ -1,6 +1,12 @@
 <h3>{{title}}</h3>
 
-<converter-panel [conversionRate]="conversionRate"></converter-panel>
+<!-- BEGIN: CONVERTER PANEL HERE -->
+<converter-panel 
+	[showMore] = "true"
+	[conversionRate]="conversionRate"
+	(onChange)="onManyConversions($event)">
+</converter-panel>
+<!-- END: CONVERTER PANEL HERE -->
 
 <!-- BEGIN: 3 x 3 CURRENCY LINKS -->
 <br/>
@@ -9,3 +15,4 @@
 		*ngFor="let c of conversions" [conversionRate]="c">
 	</currency-card>
 </div>
+<!-- END: 3 x 3 CURRENCY LINKS -->

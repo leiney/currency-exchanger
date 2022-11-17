@@ -1,0 +1,25 @@
+<!-- BEGIN: HEADER SECTION -->
+<div class="flex">
+	<h3 class="flex-col-50">
+		{{title?.code}} - {{title?.longName}}	
+	</h3>
+	<div class="flex-col-50">
+		<a class="button button-blue" [routerLink]="['/converter/home']">
+			Back To Home
+		</a>
+	</div>
+</div>
+
+<!-- BEGIN: CONVERTER PANEL HERE -->
+<converter-panel 
+	[showMore] = "false"
+	[conversionRate]="conversionRate"
+	(onChange)="onDrawCurrencyChart($event)">
+</converter-panel>
+<!-- END: CONVERTER PANEL HERE -->
+
+<!-- BEGIN: CURRENCY CHART HERE -->
+<currency-chart 
+	[conversionRate]="conversionRate">
+</currency-chart>
+<!-- BEGIN: CURRENCY CHART HERE -->

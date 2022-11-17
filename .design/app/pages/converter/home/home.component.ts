@@ -14,6 +14,7 @@ import {ConversionRate} from './../../../_models/conversion-rate';
 import {CurrencyService} from './../../../_services/currency.service';
 import {ConversionRateService} from './../../../_services/conversion-rate.service';
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'home',
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
 	title: string = 'Currency Exchanger';
 
 	@Input() conversionRate: ConversionRate = {
-		amount: 1,
+		amount: 0,
 		sourceCurrency: 'EUR',
 		destinationCurrency: 'USD'
 	}; 
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
 	
 	constructor(public __elementSelectionService:ElementSelectionService, private __componentInspectorService:ComponentInspectorService,
 
+			public route: ActivatedRoute, 
 			public rateService: ConversionRateService,
 			public currencyService: CurrencyService) {this.__componentInspectorService.getComp(this);
  
@@ -41,6 +43,13 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		
+		this.route.queryParams.subscribe((params: any) => { 
+			this.conversionRate.amount = params.amount || 0;
+			this.conversionRate.destinationCurrency = params.destination || '';
+			this.conversionRate.sourceCurrency = params.source || '';
+		});
+		
 		this.onManyConversions();
 	}
 	
@@ -69,7 +78,10 @@ export class HomeComponent implements OnInit {
 	 * This method perfroms multiple conversions by obtaining to popular
 	 * currencies from the currency listing service
 	 */
-	onManyConversions(){
+	onManyConversions(conversionRate?: any){ 
+		this.conversions = [];
+		Object.assign(this.conversionRate,(conversionRate || {}));
+		
 		this.currencyService.getCurrencies().subscribe(currencies=>{
 			for(let c of currencies){
 				
@@ -83,9 +95,5 @@ export class HomeComponent implements OnInit {
 			}
 		});
 	}
-	
-	ngOnChanges(c: SimpleChanges) {    	
-		this.onManyConversions();
-    }
 
 }

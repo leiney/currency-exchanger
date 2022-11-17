@@ -51,4 +51,13 @@ export class CurrencyService {
   		
 		return of(currencies);
 	}
+  	
+  	/**
+  	 * @method getCurrency()
+  	 * get one currency based on the currency ISO code
+  	 */
+  	public getCurrency(code: string): Observable<any>{
+  		
+  		return of(this.currencies[code]);  		
+  	}
 }

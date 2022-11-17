@@ -1,0 +1,55 @@
+.currency-graph .content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 160px;
+}
+
+.currency-graph .content span{
+    font-family: 'Roboto';
+    font-size: 13px;
+    color: #707070;
+}
+
+.currency-graph .line{
+    background-color: #CCCCCC;
+    width: 100%;
+    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.currency-graph .legends{
+    display: flex;
+    flex-direction: row;
+    color: #707070;
+    font-family: 'Roboto';
+    font-size: 12px;
+    text-align: center;
+}
+
+.currency-graph .legends span{
+    width: 60px;
+    margin:0 15px;
+}
+
+.currency-graph .bars{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.currency-graph .bar{
+    width: 60px;
+    min-height: 2px;
+    margin:0 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.currency-graph .bar:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.20);
+}

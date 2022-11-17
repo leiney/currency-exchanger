@@ -1,0 +1,15 @@
+<div class="currency-graph">
+    <div class="content">
+        <div class="bars" *ngFor="let item of chartData">
+            <span>{{item.rate | number}}</span>
+            <div class="bar" 
+            	[style.background-color]="item.color" 
+            	[style.height]='item.size'>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="legends">
+        <span *ngFor="let item of months">{{item}}</span>
+    </div>
+</div>
